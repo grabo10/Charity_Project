@@ -42,7 +42,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>13</em>
+            <em>${totalQuantity}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -50,7 +50,7 @@
         </div>
 
         <div class="stats--item">
-            <em>5</em>
+            <em>${totalDonations}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -103,38 +103,28 @@
     <h2>Komu pomagamy?</h2>
 
     <!-- SLIDE 1 -->
-    <div class="help--slides active" data-id="1">
-        <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
-            Możesz sprawdzić czym się zajmują.</p>
+    <<div class="help--slides active" data-id="1">
+    <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
+        Możesz sprawdzić czym się zajmują.</p>
 
-        <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
-
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
+    <ul class="help--slides-items">
+        <c:forEach var="institution" items="${institutions}" varStatus="status">
+            <c:if test="${status.index % 2 == 0}">
+                <li>
+            </c:if>
+            <div class="col">
+                <div class="title">${institution.name}</div>
+                <div class="subtitle">Cel i misja: ${institution.description}</div>
+            </div>
+            <c:if test="${status.index % 2 != 0}">
+                </li>
+            </c:if>
+        </c:forEach>
+        <c:if test="${status.count % 2 != 0}">
             </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
-        </ul>
-    </div>
-
+        </c:if>
+    </ul>
+</div>
 </section>
 
 <footer>
