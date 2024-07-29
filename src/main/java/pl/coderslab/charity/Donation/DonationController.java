@@ -14,11 +14,10 @@ import java.awt.*;
 @Controller
 public class DonationController {
 
-    @Autowired
     private final CategoryRepository categoryRepository;
-    @Autowired
+
     private final InstitutionRepository institutionRepository;
-    @Autowired
+
     private final DonationRepository donationRepository;
 
     public DonationController(CategoryRepository categoryRepository,InstitutionRepository institutionRepository,DonationRepository donationRepository){
